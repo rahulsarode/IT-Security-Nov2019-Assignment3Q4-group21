@@ -50,10 +50,17 @@ public class UserController {
 	}
 	
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	//*****************UNSAFE*****************
+	@CrossOrigin(origins = "*")
 	@PostMapping("/login")
 	public ResponseEntity<UserDetailsModel> validateLogin(@RequestBody UserDetailsModel userModel) throws SQLException {
 		return userService.validateUser(userModel);
 	}
+	/*//*****************SAFE*****************
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping("/login")
+	public ResponseEntity<UserDetailsModel> validateLogin(@RequestBody UserDetailsModel userModel) throws SQLException {
+		return userService.validateUser(userModel);
+	}*/
 }
 
