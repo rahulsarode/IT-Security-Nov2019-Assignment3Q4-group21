@@ -73,17 +73,17 @@ public class UserDaoImpl implements UserDao {
 		
 	//******************SAFE*******************
 		
-		//	String userQuery = "SELECT * FROM user_details WHERE user_name = ? and password = ?";  
-		//	PreparedStatement pstmt = con.prepareStatement( userQuery );
-		//	pstmt.setString( 1, userName); 
-		//	pstmt.setString( 2, password);
-		//	ResultSet resultSet = pstmt.executeQuery( );
+			String userQuery = "SELECT * FROM user_details WHERE user_name = ? and password = ?";  
+			PreparedStatement pstmt = con.prepareStatement( userQuery );
+			pstmt.setString( 1, userName); 
+			pstmt.setString( 2, password);
+			ResultSet resultSet = pstmt.executeQuery( );
 		
 	//*******************UNSAFE*****************
 			
-			Statement statement = con.createStatement();
+		//	Statement statement = con.createStatement();
 			
-			ResultSet resultSet =statement.executeQuery("SELECT * FROM user_details WHERE user_name = '"+ userName +"' AND PASSWORD='" + password + "'"); 
+		//	ResultSet resultSet =statement.executeQuery("SELECT * FROM user_details WHERE user_name = '"+ userName +"' AND PASSWORD='" + password + "'"); 
 			
 			if (resultSet.next()){
 				user.setUserId(resultSet.getInt(1));
