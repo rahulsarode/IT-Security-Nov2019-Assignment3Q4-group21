@@ -1,0 +1,19 @@
+<!-- nav -->
+<nav class="navbar navbar-default bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <button class="btn btn-danger" style="cursor: pointer;" (click)="logout()">Logout</button>
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <router-outlet></router-outlet>
+                <br>
+                <alert></alert>
+            </div>
+        </div>
+    </div>
+</div>
